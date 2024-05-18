@@ -154,9 +154,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 1, z: 0}
   velocityConstant: 1
-  accel: 4
-  isOrbiting: 1
+  accel: 0
   speed: 0
+  gravConstant: 1
+  isOrbiting: 1
   planetPos: {x: 2, y: 5, z: 0}
 --- !u!212 &516553409
 SpriteRenderer:
