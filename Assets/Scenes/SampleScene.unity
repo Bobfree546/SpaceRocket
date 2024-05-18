@@ -152,7 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ba166527448b545a431939a30733bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 1, z: 0}
+  velocityConstant: 1
+  accel: 4
+  isOrbiting: 1
+  speed: 0
+  planetPos: {x: 2, y: 5, z: 0}
 --- !u!212 &516553409
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -214,7 +219,7 @@ Transform:
   m_GameObject: {fileID: 516553407}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
