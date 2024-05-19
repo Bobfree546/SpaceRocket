@@ -37,8 +37,8 @@ public class Rocket : MonoBehaviour
 
         if (isOrbiting)
         {
-            speed = GetOrbitSpeed();
             accel = GetAccel();
+            speed = GetOrbitSpeed();
 
             Vector3 r = GetVectorToPlanet();
 
@@ -47,12 +47,10 @@ public class Rocket : MonoBehaviour
 
             velocity += new Vector3(accelX, accelY) * Time.deltaTime;
 
-            Move();
+            
         }
-        else
-        {
-            Move();
-        }
+
+        Move();
 
         transform.rotation = GetRotation();
     }
@@ -81,7 +79,7 @@ public class Rocket : MonoBehaviour
 
     private float GetAccel()
     {
-        return gravConstant / GetOrbitRadius();
+        return (float) (gravConstant / Math.Pow(GetOrbitRadius(), 2));
     }
 
     private float GetOrbitSpeed()
