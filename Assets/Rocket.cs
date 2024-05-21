@@ -55,6 +55,11 @@ public class Rocket : MonoBehaviour
         transform.rotation = GetRotation();
     }
 
+    public void setPlanetPos(Vector3 newPos)
+    {
+        planetPos = newPos;
+    }
+
     private void Move()
     {
         transform.position += Time.deltaTime * velocityConstant * new Vector3(velocity.x, velocity.y, 0);
