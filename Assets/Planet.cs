@@ -8,6 +8,7 @@ public class Planet : MonoBehaviour
 {
     public int planetId;
     public float rotateSpeed;
+    public const float LARGEST_PLANET_RADIUS = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,5 +21,4 @@ public class Planet : MonoBehaviour
     {
         transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
     }
-
 }
