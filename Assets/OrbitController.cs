@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class OrbitController : MonoBehaviour
 {
-    public PlanetSpawner planetSpawner; 
-    public Rocket rocket;
+    public PlanetSpawner planetSpawner;
+    public GameObject rocket;
 
     private Vector3 currPlanetPos;
 
@@ -13,15 +13,15 @@ public class OrbitController : MonoBehaviour
     void Start()
     {
         currPlanetPos = planetSpawner.SpawnInitialPlanets();
-        //currPlanetPos = ps.GetPlanetPos
+        rocket = Instantiate(rocket, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 planetPos = planetSpawner.GetNextOrbitPlanetPosition(rocket.transform.position, currPlanetPos);
+        currPlanetPos = planetSpawner.GetNextOrbitPlanetPosition(rocket.transform.position, currPlanetPos);
 
-        rocket.SetPlanetPos(currPlanetPos);
+        rocket.GetComponent<Rocket>().SetPlanetPos(currPlanetPos);
     }
 
     public void CheckAndDestroyPlanet(float cameraLowestY)
