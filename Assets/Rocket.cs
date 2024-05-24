@@ -13,7 +13,7 @@ public class Rocket : MonoBehaviour
     public float gravConstant;
     public bool isOrbiting;
     // temp planet
-    public Vector3 planetPos = new Vector3(2, 5, 0);
+    private Vector3 planetPos;
 
     private static float LATCH_ERROR = 0.2f;
 
@@ -53,6 +53,11 @@ public class Rocket : MonoBehaviour
         Move();
 
         transform.rotation = GetRotation();
+    }
+
+    public void SetPlanetPos(Vector3 newPos)
+    {
+        planetPos = newPos;
     }
 
     private void Move()
