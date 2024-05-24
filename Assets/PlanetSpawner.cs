@@ -25,7 +25,7 @@ public class PlanetSpawner : MonoBehaviour
 
     }
 
-    void SpawnPlanet()
+    public void SpawnPlanet()
     {
         float nextX = Random.Range(-5, 5);
         float nextY = planets.Last().transform.position.y + PLANET_SHIFT;
@@ -37,14 +37,14 @@ public class PlanetSpawner : MonoBehaviour
         planets.Enqueue(planetObject);
     }
 
-    Vector3 GetNextOrbitPlanetPosition(Vector3 RocketPosition, Vector3 CurrentOrbitPlanetPosition)
+    public Vector3 GetNextOrbitPlanetPosition(Vector3 RocketPosition, Vector3 CurrentOrbitPlanetPosition)
     {
         return planets
             .Where(p => p.transform.position.y > RocketPosition.y && !p.transform.position.Equals(CurrentOrbitPlanetPosition))
             .First().transform.position;
     }
 
-    void CheckAndDestroyPlanet(float cameraLowestY)
+    public void CheckAndDestroyPlanet(float cameraLowestY)
     {
         while (planets.First().transform.position.y < (cameraLowestY - Planet.LARGEST_PLANET_RADIUS))
         {
