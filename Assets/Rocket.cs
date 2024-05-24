@@ -33,7 +33,7 @@ public class Rocket : MonoBehaviour
             isOrbiting = !isOrbiting;
         }
 
-        Debug.Log(isOrbiting);
+        //Debug.Log(isOrbiting);
 
         if (isOrbiting)
         {

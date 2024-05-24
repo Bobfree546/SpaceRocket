@@ -11,12 +11,12 @@ public class PlanetSpawner : MonoBehaviour
 
     public GameObject planetGameObject;
     public static int planetCount = 0;
-    private Queue<GameObject> planets;
+    private Queue<GameObject> planets = new Queue<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -25,16 +25,37 @@ public class PlanetSpawner : MonoBehaviour
 
     }
 
-    public void SpawnPlanet()
+    public Vector3 SpawnInitialPlanets()
+    {
+        GameObject firstPlanet = SpawnPlanet(0f, 0f);
+
+        planets.Enqueue(firstPlanet);
+
+        for (int i = 0; i< 3; i++)
+        {
+            SpawnNextPlanet();
+        }
+
+        return firstPlanet.transform.position;
+    }
+
+    public void SpawnNextPlanet()
     {
         float nextX = Random.Range(-5, 5);
         float nextY = planets.Last().transform.position.y + PLANET_SHIFT;
 
+        GameObject planetObject = SpawnPlanet(nextX, nextY);
+
+        planets.Enqueue(planetObject);
+    }
+
+    private GameObject SpawnPlanet(float nextX, float nextY)
+    {
         Vector3 newPosition = new Vector3(nextX, nextY, 0);
         GameObject planetObject = Instantiate(planetGameObject, newPosition, Quaternion.identity);
         planetObject.GetComponent<Planet>().rotateSpeed = Random.Range(-20, 20);
 
-        planets.Enqueue(planetObject);
+        return planetObject;
     }
 
     public Vector3 GetNextOrbitPlanetPosition(Vector3 RocketPosition, Vector3 CurrentOrbitPlanetPosition)

@@ -12,7 +12,7 @@ public class OrbitController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        planetSpawner.SpawnPlanet();
+        currPlanetPos = planetSpawner.SpawnInitialPlanets();
         //currPlanetPos = ps.GetPlanetPos
     }
 

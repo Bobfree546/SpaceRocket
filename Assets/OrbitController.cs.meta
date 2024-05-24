@@ -3,7 +3,9 @@ guid: 603d21f018efcb74794cabf180f8983f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - planetSpawner: {fileID: 2183349574127996096, guid: 84796d80db7add84a8e59df937dd9e45, type: 3}
+  - rocket: {fileID: 4716524706548236353, guid: bf46976ec0db8994695e1ccd450c8a98, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
