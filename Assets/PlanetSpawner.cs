@@ -27,7 +27,7 @@ public class PlanetSpawner : MonoBehaviour
 
     public Vector3 SpawnInitialPlanets()
     {
-        GameObject firstPlanet = SpawnPlanet(0f, 0f);
+        GameObject firstPlanet = SpawnPlanet(2f, 2f);
 
         planets.Enqueue(firstPlanet);
 
